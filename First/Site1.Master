@@ -1,0 +1,140 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site1.master.cs" Inherits="First.Site1" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title>Chotha</title>
+    <%-- bootstap css --%>
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+
+    <%-- datatables css --%>
+    <link href="datatables/css/jquery.dataTables.min.css" rel="stylesheet" />
+
+    <%-- font css --%>
+    <link href="fontawesome/css/all.css" rel="stylesheet" />
+
+    <link href="css/mystyle.css" rel="stylesheet" />
+
+
+   <%-- bootstrap js --%>
+   
+    <script src="bootstrap/js/jquery-3.1.1.slim.min.js"></script>
+    <script src="bootstrap/js/popper.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+
+
+</head>
+<body >
+    <form id="form1" runat="server">
+
+   
+        <div style="background-color: #e3f2fd;">
+            
+            <nav class="navbar navbar-expand-lg navbar-light container-fluid" id="navbar" >
+                <a class="navbar-brand" href="#">
+                    <img src="img/KUET%20logo.png" width="30" height="35" />
+                    Chotha
+                </a>
+
+               <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                 <%--<div class="collapse navbar-collapse" id="navbarSupportedContent">--%>
+
+                <div class="navbar-collapse">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active nav-hover">
+                            <a class="nav-link" href="homepage.aspx">Home</a>
+                        </li>
+                        <li class="nav-item active nav-hover">
+                            <a class="nav-link" href="#about">About</a>
+                        </li>
+                        <li class="nav-item active nav-hover">
+                            <a class="nav-link" href="#">Term</a>
+                        </li>
+
+                    </ul>
+
+                    <ul class="navbar-nav" style="margin-left:auto">
+                        <li class="nav-item active nav-hover">
+                            <asp:LinkButton class="nav-link" ID="LinkButton4" runat="server" OnClick="LinkButton4_Click" Visible="True">Find</asp:LinkButton>
+                        </li>
+
+                        <li class="nav-item active nav-hover">
+                            <asp:LinkButton class="nav-link" ID="LinkButton5" runat="server" OnClick="LinkButton5_Click" Visible="False">Upload</asp:LinkButton>
+                        </li>
+
+                        <li class="nav-item active nav-hover">
+                            <asp:LinkButton class="nav-link" ID="LinkButton1" runat="server" OnClick="LinkButton1_Click">Login</asp:LinkButton>
+                        </li>
+                        <li class="nav-item active nav-hover">
+                            <asp:LinkButton class="nav-link" ID="LinkButton2" runat="server" OnClick="LinkButton2_Click">Sign Up</asp:LinkButton>
+                        </li>
+                        <li class="nav-item active nav-hover">
+                            <asp:LinkButton class="nav-link" ID="LinkButton3" runat="server" Visible="False">Logout</asp:LinkButton>
+                        </li>
+
+                        <li class="nav-item active nav-hover">
+                            <asp:LinkButton class="nav-link" ID="LinkButton7" runat="server" OnClick="LinkButton7_Click" Visible="False">Hello user</asp:LinkButton>
+
+                        </li>
+                    </ul>
+                </div>
+
+
+            </nav>
+        </div>
+    
+ 
+ 
+
+
+        <!-- Main Content Placeholder -->
+        <div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+        <!-- Main Content Placeholder -->
+
+
+        <section>
+            <a href="#navbar"> Go to Top</a>
+        </section>
+         <!-- Footer -->
+        <footer>
+            <div id="footer1">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 text-center">
+                        <p>
+                            <asp:LinkButton class="footerlinks" ID="LinkButton6" runat="server" OnClick="LinkButton6_Click">Admin Login</asp:LinkButton>
+                            &nbsp; 
+                            <asp:LinkButton class="footerlinks" ID="LinkButton8" runat="server" OnClick="LinkButton8_Click" Visible="False">Account Management</asp:LinkButton>
+                            &nbsp;
+                            <asp:LinkButton class="footerlinks" ID="LinkButton9" runat="server" OnClick="LinkButton9_Click" Visible="False">Chotha Management</asp:LinkButton>
+                           
+                        </p>
+
+                    </div>
+
+                </div>
+            </div>
+            <div id="footer2">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 text-center">
+                        <p style="color:whitesmoke">&copy All rights Reserved @ <a class="footerlinks" href="#" target="_blank">Ashikur Rahman</a></p>
+                    </div>
+                </div>
+            </div>
+
+        </footer>
+        <!-- ./Footer -->
+
+    </form>
+</body>
+</html>

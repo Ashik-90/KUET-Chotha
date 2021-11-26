@@ -1,0 +1,77 @@
+*{
+    margin:0;
+    padding: 0;
+}
+.home-back{
+    background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url(back.jpg);
+    background-position: center;
+    background-size: cover;
+    font-size: 40px;
+    color: white;
+}
+
+.test:hover{
+    opacity:0.5;
+}
+
+/*.navig{
+    padding: 30px 40px;
+    height: 4vh;
+    background-color: rgba(165, 42, 42, 0.56);
+}
+.navig h1{
+    position: absolute;
+    font-size:35px;
+    color:yellow;
+}
+
+ul{
+    float: right;
+    list-style: none;
+}
+ul li{
+    display: inline-block;
+    text-decoration: none;
+
+}
+ul li a{
+    transition: 0.6s ease;
+    text-decoration: none;
+    color:white;
+    font-size: 20px;  
+    padding:4px 10px;
+    border: 2px solid dodgerblue;
+}
+
+.main{
+    color: white;
+    padding: 20vh 40px;
+}
+.main h1{
+    font-size: 50px;
+}
+ul li a:hover, ul li.active-home a{
+    background-color: bisque;
+    color: red;
+}
+.button{   
+    margin: 2% 10%;
+    position: absolute;
+    top:60vh;
+}
+
+.button a.btn{
+    transition: 0.6s ease;
+    font-size: 20px;
+    text-decoration: none;
+    padding: 5px 20px;
+    color:white;
+    border: 2px solid dodgerblue;
+ 
+}
+.button a:hover{
+    color:red;
+    background-color: bisque;
+}*/
+
+
