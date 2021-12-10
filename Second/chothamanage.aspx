@@ -94,10 +94,10 @@
                         <asp:Button ID="Button1" class="btn btn-lg btn-block btn-success" runat="server" Text="Add" />
                      </div>
                      <div class="col-4">
-                        <asp:Button ID="Button3" class="btn btn-lg btn-block btn-warning" runat="server" Text="Update" />
+                        <asp:Button ID="Button3" class="btn btn-lg btn-block btn-warning" runat="server" Text="Approve" />
                      </div>
                      <div class="col-4">
-                        <asp:Button ID="Button2" class="btn btn-lg btn-block btn-danger" runat="server" Text="Delete" />
+                        <asp:Button ID="Button2" class="btn btn-lg btn-block btn-danger" runat="server" Text="Deny" />
                      </div>
                   </div>
                </div>
@@ -122,8 +122,17 @@
                      </div>
                   </div>
                   <div class="row">
+                      <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:KUETChothaConnectionString %>" SelectCommand="SELECT [c_id], [u_roll], [c_title], [heading], [dscpt] FROM [pending]"></asp:SqlDataSource>
                      <div class="col">
-                        <asp:GridView class="table table-striped table-bordered" ID="GridView1" runat="server"></asp:GridView>
+                        <asp:GridView class="table table-striped table-bordered" ID="GridView1" runat="server" AllowPaging="True" AutoGenerateColumns="False" DataKeyNames="c_id" DataSourceID="SqlDataSource1">
+                            <Columns>
+                                <asp:BoundField DataField="c_id" HeaderText="Chotha ID" ReadOnly="True" SortExpression="c_id" />
+                                <asp:BoundField DataField="u_roll" HeaderText="Uploader roll" SortExpression="u_roll" />
+                                <asp:BoundField DataField="c_title" HeaderText="Course" SortExpression="c_title" />
+                                <asp:BoundField DataField="heading" HeaderText="Title" SortExpression="heading" />
+                                <asp:BoundField DataField="dscpt" HeaderText="Description" SortExpression="dscpt" />
+                            </Columns>
+                         </asp:GridView>
                      </div>
                   </div>
                </div>

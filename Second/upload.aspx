@@ -61,8 +61,8 @@
                         <label>Chotha ID</label>
                         <div class="form-group" style="margin:10px">
                            <div class="input-group">
-                              <asp:TextBox CssClass="form-control" ID="TextBox1" runat="server" placeholder="Chotha ID" TextMode="Search" ReadOnly="True"></asp:TextBox>
-                              <asp:LinkButton class="btn btn-primary" ID="LinkButton4" runat="server"><i class="fas fa-check-circle"></i></asp:LinkButton>
+                              <asp:TextBox CssClass="form-control" ID="TextBox1" runat="server" placeholder="Chotha ID" TextMode="Search"></asp:TextBox>
+                              
                            </div>
                         </div>
                      </div>
@@ -92,7 +92,7 @@
                     
                      <div class="col-6 mx-auto">
                           <center>
-                        <asp:Button ID="Button3" class="btn btn-lg btn-block btn-warning" runat="server" Text="Upload" />
+                        <asp:Button ID="Button3" class="btn btn-lg btn-block btn-warning" runat="server" Text="Upload" OnClick="Button3_Click" />
                      </center>
                      </div>
                          

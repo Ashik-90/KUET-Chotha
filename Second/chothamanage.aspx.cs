@@ -11,7 +11,9 @@ namespace Second
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            GridView1.DataBind();
         }
+
+
     }
 }
