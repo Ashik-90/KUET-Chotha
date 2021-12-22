@@ -240,5 +240,30 @@ namespace Second
                 Response.Write("<script>alert('" + ex.Message + "'); </script>");
             }
         }
+
+        protected void LinkButton1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var element = (LinkButton)sender;
+
+                String filename = element.Text.ToString();
+                String filepath = Server.MapPath("Files/" + filename);
+
+                Response.Clear();
+                Response.ClearHeaders();
+                Response.ClearContent();
+                Response.AddHeader("Content-Disposition", "attachment; filename=" + filename);
+                Response.Flush();
+
+                Response.TransmitFile(filepath);
+                Response.End();
+            }
+            catch (Exception ex)   
+            {
+                Response.Write("<script>alert('" + ex.Message + "'); </script>");
+            }
+
+        }
     }
 }

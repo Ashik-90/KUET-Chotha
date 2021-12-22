@@ -25,7 +25,7 @@
                     <div class="row">
                      <div class="col">
                         <center>
-                            <asp:Label ID="Label1" runat="server" Text="Successful add/update/delete"></asp:Label>
+                            <asp:Label ID="Label1" runat="server" Text=""></asp:Label>
                         </center>
                      </div>
                   </div>
@@ -50,6 +50,8 @@
                               <asp:ListItem Text="HUM" Value="HUM" />
                               <asp:ListItem Text="ME" Value="ME" />
                               <asp:ListItem Text="ARCH" Value="ARCH" />
+                              <asp:ListItem Text="PHY" Value="ARCH" />
+                              <asp:ListItem Text="CHEM" Value="ARCH" />
                            </asp:DropDownList>
                         
                         </div>
@@ -122,7 +124,7 @@
                      </div>
                   </div>
                   <div class="row">
-                      <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:KUETChothaConnectionString %>" SelectCommand="SELECT [c_id], [u_roll], [c_title], [heading], [dscpt] FROM [pending]"></asp:SqlDataSource>
+                      <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:KUETChothaConnectionString %>" SelectCommand="SELECT [c_id], [u_roll], [c_title], [heading], [dscpt], [addr] FROM [pending]"></asp:SqlDataSource>
                      <div class="col">
                         <asp:GridView class="table table-striped table-bordered" ID="GridView1" runat="server" AllowPaging="True" AutoGenerateColumns="False" DataKeyNames="c_id" DataSourceID="SqlDataSource1">
                             <Columns>
@@ -131,6 +133,13 @@
                                 <asp:BoundField DataField="c_title" HeaderText="Course" SortExpression="c_title" />
                                 <asp:BoundField DataField="heading" HeaderText="Title" SortExpression="heading" />
                                 <asp:BoundField DataField="dscpt" HeaderText="Description" SortExpression="dscpt" />
+                                <asp:BoundField DataField="addr" HeaderText="Path" SortExpression="addr" Visible="false" />
+
+                                <asp:TemplateField HeaderText="Download">
+                                    <ItemTemplate>
+                                        <asp:LinkButton ID="LinkButton1" runat="server" Text='<%# Eval("addr") %>' OnClick="LinkButton1_Click"></asp:LinkButton>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
                             </Columns>
                          </asp:GridView>
                      </div>
