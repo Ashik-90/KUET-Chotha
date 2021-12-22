@@ -24,7 +24,7 @@
                     <div class="row">
                      <div class="col">
                         <center>
-                            <asp:Label ID="Label1" runat="server" Text="Successful add/update/delete"></asp:Label>
+                            <asp:Label ID="Label1" runat="server" Text=""></asp:Label>
                         </center>
                      </div>
                   </div>
