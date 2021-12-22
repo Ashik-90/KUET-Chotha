@@ -66,6 +66,10 @@ namespace Second
                 
                 con.Close();
                 GridView1.DataBind();
+                TextBox1.Text = "";
+                TextBox2.Text = "";
+                TextBox3.Text = "";
+                TextBox4.Text = "";
             }
             catch (Exception ex)
             {
