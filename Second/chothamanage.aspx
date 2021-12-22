@@ -63,7 +63,7 @@
                         <div class="form-group" style="margin:10px">
                            <div class="input-group">
                               <asp:TextBox CssClass="form-control" ID="TextBox1" runat="server" placeholder="Chotha ID"></asp:TextBox>
-                              <asp:LinkButton class="btn btn-primary" ID="LinkButton4" runat="server"><i class="fas fa-check-circle"></i></asp:LinkButton>
+                              <asp:LinkButton class="btn btn-primary" ID="LinkButton4" runat="server" OnClick="LinkButton4_Click"><i class="fas fa-check-circle"></i></asp:LinkButton>
                            </div>
                         </div>
                      </div>
@@ -94,10 +94,10 @@
                         <asp:Button ID="Button1" class="btn btn-lg btn-block btn-success" runat="server" Text="Add" OnClick="Button1_Click" />
                      </div>
                      <div class="col-4">
-                        <asp:Button ID="Button3" class="btn btn-lg btn-block btn-warning" runat="server" Text="Approve" />
+                        <asp:Button ID="Button3" class="btn btn-lg btn-block btn-warning" runat="server" Text="Approve" OnClick="Button3_Click" />
                      </div>
                      <div class="col-4">
-                        <asp:Button ID="Button2" class="btn btn-lg btn-block btn-danger" runat="server" Text="Deny" />
+                        <asp:Button ID="Button2" class="btn btn-lg btn-block btn-danger" runat="server" Text="Deny" OnClick="Button2_Click" />
                      </div>
                   </div>
                </div>

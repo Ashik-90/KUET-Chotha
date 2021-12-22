@@ -14,6 +14,7 @@ namespace Second
     {
         string strcon = ConfigurationManager.ConnectionStrings["con"].ConnectionString;
         string Fname;
+        
         protected void Page_Load(object sender, EventArgs e)
         {
             GridView1.DataBind();
@@ -31,6 +32,40 @@ namespace Second
 
 
                 SqlCommand cmd = new SqlCommand("SELECT * from approved where c_id='" + TextBox1.Text.Trim() + "';", con);
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+
+                if (dt.Rows.Count > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+
+
+
+            }
+            catch (Exception ex)
+            {
+                Response.Write("<script>alert('" + ex.Message + "'); </script>");
+                return false;
+            }
+        }
+        bool CheckChothaExistPending()
+        {
+            try
+            {
+                SqlConnection con = new SqlConnection(strcon);
+                if (con.State == ConnectionState.Closed)
+                {
+                    con.Open();
+                }
+
+
+                SqlCommand cmd = new SqlCommand("SELECT * from pending where c_id='" + TextBox1.Text.Trim() + "';", con);
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 DataTable dt = new DataTable();
                 da.Fill(dt);
@@ -120,6 +155,89 @@ namespace Second
             {
                 UploadFile();
 
+            }
+        }
+
+        protected void Button2_Click(object sender, EventArgs e) //Deny
+        {
+            try
+            {
+                SqlConnection con = new SqlConnection(strcon);
+                if (con.State == ConnectionState.Closed)
+                {
+                    con.Open();
+                }
+                SqlCommand cmd = new SqlCommand("DELETE from pending where c_id='" + TextBox1.Text.Trim() + "';", con);
+                cmd.ExecuteNonQuery();
+
+                con.Close();
+                GridView1.DataBind();
+                TextBox1.Text = "";
+                TextBox2.Text = "";
+                TextBox6.Text = "";
+                
+            }
+            catch (Exception ex)
+            {
+                Response.Write("<script>alert('" + ex.Message + "'); </script>");
+            }
+
+        }
+
+        protected void LinkButton4_Click(object sender, EventArgs e)
+        {
+           if(CheckChothaExist())
+            {
+                Label1.Text = "ID already occupied";
+                Label1.ForeColor= System.Drawing.Color.Red; 
+            }
+           else if(CheckChothaExistPending())
+            {
+                Label1.Text = "ID already in pending";
+                Label1.ForeColor = System.Drawing.Color.Red;
+            }
+            else
+            {
+                Label1.Text = "ID is free";
+                Label1.ForeColor = System.Drawing.Color.Green;
+            }
+        }
+
+        protected void Button3_Click(object sender, EventArgs e) //Approve
+        {
+            
+            try
+            {
+                
+                SqlConnection con = new SqlConnection(strcon);
+                if (con.State == ConnectionState.Closed)
+                {
+                    con.Open();
+                }
+                SqlCommand cmd = new SqlCommand("INSERT INTO approved (c_id, u_roll, addr, c_title, heading, " +
+                    "dscpt) SELECT c_id, u_roll, addr, c_title, heading, dscpt FROM pending " +
+                    "where c_id='" + TextBox1.Text.Trim() + "';", con);
+                cmd.ExecuteNonQuery();
+                con.Close();
+                
+                Label1.Text = "Approved";
+                Label1.ForeColor = System.Drawing.Color.Green;
+               
+                con.Open ();
+                SqlCommand cmd2 = new SqlCommand("DELETE from pending " +
+                    "where c_id='" + TextBox1.Text.Trim() + "';", con);
+                cmd2.ExecuteNonQuery();
+
+                con.Close();
+                GridView1.DataBind();
+                TextBox1.Text = "";
+                TextBox2.Text = "";
+                TextBox6.Text = "";
+
+            }
+            catch (Exception ex)
+            {
+                Response.Write("<script>alert('" + ex.Message + "'); </script>");
             }
         }
     }
