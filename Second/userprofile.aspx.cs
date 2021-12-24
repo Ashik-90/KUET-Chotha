@@ -22,10 +22,20 @@ namespace Second
                 TextBox2.Text = Session["roll"].ToString(); 
                 TextBox3.Text = Session["dept"].ToString(); 
                 TextBox4.Text = Session["mobile"].ToString(); 
-                TextBox5.Text = Session["email"].ToString(); 
+                TextBox5.Text = Session["email"].ToString();
 
-                    
+                SqlConnection con = new SqlConnection(strcon);
+                if (con.State == ConnectionState.Closed)
+                {
+                    con.Open();
+                }
+                SqlCommand cmd = new SqlCommand("SELECT c_id, c_title, heading, dscpt from approved where u_roll='"+Session["roll"]+"';", con);
+                DataTable dt = new DataTable();
+                SqlDataAdapter sda = new SqlDataAdapter(cmd);
+                sda.Fill(dt);
+                GridView1.DataSource = dt;
                 
+                GridView1.DataBind();   
             }
             catch (Exception ex)
             {

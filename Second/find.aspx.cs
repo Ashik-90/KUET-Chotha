@@ -17,13 +17,15 @@ namespace Second
         protected void Page_Load(object sender, EventArgs e)
         {
             GridView1.DataBind();
+            
         }
 
         protected void LinkButton1_Click(object sender, EventArgs e)
         {
-            LinkButton linkdownload = sender as LinkButton;
-            GridViewRow gridrow = linkdownload.NamingContainer as GridViewRow;
-            string downloadfile = GridView1.DataKeys[gridrow.RowIndex].Value.ToString();
+           LinkButton linkdownload = sender as LinkButton;
+           GridViewRow gridrow = linkdownload.NamingContainer as GridViewRow;
+           string downloadfile = GridView1.DataKeys[gridrow.RowIndex].Value.ToString();
+         
             Response.ContentType = ContentType;
 
 
@@ -50,5 +52,8 @@ namespace Second
             Response.TransmitFile(Server.MapPath(downlink));
             Response.End();
         }
+       
+
+
     }
 }

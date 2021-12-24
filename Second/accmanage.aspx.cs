@@ -44,7 +44,14 @@ namespace Second
                 {
                     Response.Write("<script>alert('Invalid Roll'); </script>");
                 }
-
+                con.Close();
+                con.Open();
+                SqlCommand cmd2 = new SqlCommand("select c_id, c_title, heading, dscpt from approved where u_roll='"+ TextBox1.Text.Trim() +"';", con);
+                DataTable dt = new DataTable();
+                SqlDataAdapter sda = new SqlDataAdapter(cmd2);
+                sda.Fill(dt);
+                GridView2.DataSource = dt;
+                GridView2.DataBind();
             }
             catch (Exception ex)
             {

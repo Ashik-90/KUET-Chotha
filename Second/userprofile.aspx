@@ -152,8 +152,17 @@
                   </div>
 
                    <div class="row">
+                       
                      <div class="col">
-                         <asp:GridView class="table table-hover table-dark" ID="GridView1" runat="server"></asp:GridView>
+                         <asp:GridView class="table table-hover table-dark" ID="GridView1" runat="server"  DataKeyNames="c_id" AllowPaging="true"></asp:GridView>
+                         <columns>
+
+                                <asp:BoundField DataField="c_id" HeaderText="Chotha ID" SortExpression="c_id" />
+                              
+                                <asp:BoundField DataField="c_title" HeaderText="Course" SortExpression="c_title" />
+                                <asp:BoundField DataField="heading" HeaderText="Title" SortExpression="heading" />
+                                <asp:BoundField DataField="dscpt" HeaderText="Description" SortExpression="dscpt" />
+                         </columns>
                      </div>
                   </div>
             
